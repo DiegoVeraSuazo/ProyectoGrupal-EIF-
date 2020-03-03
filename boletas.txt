@@ -1,0 +1,2 @@
+
+  Hora del pedido: {id, pizza, tamano, precio, nombreCliente, runCliente, horaPedido}
