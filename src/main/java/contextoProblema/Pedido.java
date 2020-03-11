@@ -17,9 +17,28 @@ public class Pedido {
 		Producto pizza = new Producto();
 
 		int opcion = 0;
+		platos(opcion, pizza, validar);
+
+		opcion = 0;
+		tamano(opcion, pizza, validar);
+
+		pizzas.add(pizza);
+		int contador = 0;
+		while(contador<pizzas.size()){
+			contador++;
+		}
+		pizza.setId(contador);
+		String nuevaPizza = pizza.toString();
+		return nuevaPizza;
+	}
+
+
+
+	public static Producto platos(int opcion, Producto pizza, Validar validacion){
+
 		do {
 			System.out.println("¿Que pizza desea llevar? (Ingrese el numero correspondiente) \n1- Pizza Mediterranea\n2- Pizza Vegetariana\n3- Pizza Texana\n4- Pizza Americana");
-			opcion = validar.validarEntero();
+			opcion = validacion.validarEntero();
 			System.out.println(opcion);
 			switch (opcion) {
 				case 1:
@@ -39,11 +58,14 @@ public class Pedido {
 			}
 		}while(opcion == 0 || opcion > 4);
 
-		int opcion1 = 0;
+		return pizza;
+	}
+
+	public static Producto tamano(int opcion, Producto pizza, Validar validacion) {
 		do {
 			System.out.println("¿Que tamaño desea? (Ingrese el numero correspondiente) \n1- Chica Valor $5000\n2- Mediana Valor $10000\n3- Grande Valor $15000");
-			opcion1 = validar.validarEntero();
-			switch (opcion1) {
+			opcion = validacion.validarEntero();
+			switch (opcion) {
 				case 1:
 					pizza.setTamano("Chica");
 					pizza.setPrecio(5000);
@@ -59,17 +81,10 @@ public class Pedido {
 				default:
 					break;
 			}
-		}while(opcion1 == 0 || opcion1 > 3);
-
-		pizzas.add(pizza);
-		int contador = 0;
-		while(contador<pizzas.size()){
-			contador++;
-		}
-		pizza.setId(contador);
-		String nuevaPizza = pizza.toString();
-		return nuevaPizza;
+		}while(opcion == 0 || opcion > 3);
+		return pizza;
 	}
+
 
 	/**
 	 * Metodo que se encarga de interactuar con el usuario para que pueda ingresar sus datos.
