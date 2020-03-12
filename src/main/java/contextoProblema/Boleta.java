@@ -19,15 +19,14 @@ public class Boleta {
     /**
      * Metodo que registra un pedido en el archivo .txt agregandole la hora al pedido.
      * */
-    public void agregarPedido(){
-        Pedido pedido = new Pedido();
-        GestorArchivo gestor = new GestorArchivo();
+    public String agregarPedido(Pedido pedido, GestorArchivo gestorArchivo){
         String pizza =  pedido.eleccionPizza();
         String cliente = pedido.registrarCliente();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         tiempoPedido = dateFormat.format(date);
-        gestor.nuevaLineaTexto(tiempoPedido,pizza,cliente,"boletas.txt");
+        String boleta = gestorArchivo.nuevaLineaTexto(tiempoPedido,pizza,cliente,"boletas.txt");
+        return boleta;
     }
 
 }

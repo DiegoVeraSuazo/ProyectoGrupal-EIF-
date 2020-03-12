@@ -3,6 +3,7 @@ package interfazUsuario;
 import GUIs.Ventana;
 import archivo.GestorArchivo;
 import contextoProblema.Boleta;
+import contextoProblema.Pedido;
 import validar.Validar;
 
 public class Menu {
@@ -30,9 +31,10 @@ public class Menu {
     public static void seleccion(int opcion, boolean ejec) {
         GestorArchivo gestorArchivo = new GestorArchivo();
         Boleta boleta = new Boleta();
+        Pedido nuevoPedido = new Pedido();
         switch(opcion){
             case 1:
-                boleta.agregarPedido();
+                boleta.agregarPedido(nuevoPedido,gestorArchivo);
                 break;
             case 2:
                 gestorArchivo.verArchivo("boletas.txt");

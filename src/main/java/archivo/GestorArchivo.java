@@ -54,11 +54,11 @@ public class GestorArchivo {
 
     /**
      * Elimina completamente el contenido del .txt.
-     * @param dir Ruta del archivo .txt.
+     * @param ruta Ruta del archivo .txt.
      */
-    public static void vaciarArchivo(String dir){
+    public static void vaciarArchivo(String ruta){
         try{
-            BufferedWriter bw = new BufferedWriter(new FileWriter(dir));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(ruta));
             bw.write("");
             bw.close();
         }catch(IOException e){}
