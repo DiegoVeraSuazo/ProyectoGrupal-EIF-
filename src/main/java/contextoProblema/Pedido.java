@@ -9,17 +9,17 @@ public class Pedido {
 	private static ArrayList<Producto> pizzas = new ArrayList<>();
 
 	/**
-	 * Metodo que se encarga de interactuar con el usuario para que pueda escoger la pizza que quiera y su tamaño.
+	 * Metodo que se encarga de recoger valores de los metodos platos y tamano, estos valores sirven para tener el pedido listo en un texto que contiene todo los datos necesarios.
 	 * @return retorna una variable String que contiene un texto con lo que escojio el usuario.
 	 * */
 	public static String eleccionPizza(){
-		Validar validar = new Validar();
 		Producto pizza = new Producto();
+		Validar validar = new Validar();
 
 		int opcion = 0;
-		platos(opcion, pizza, validar);
+		platos(opcion, pizza,validar);
 
-		opcion = 0;
+		opcion=0;
 		tamano(opcion, pizza, validar);
 
 		pizzas.add(pizza);
@@ -32,13 +32,17 @@ public class Pedido {
 		return nuevaPizza;
 	}
 
-
-
-	public static Producto platos(int opcion, Producto pizza, Validar validacion){
-
+	/**
+	 * Metodo que permite escoger el tipo de pizza interactuando con el usuario.
+	 * @param opcion pertenece al valor que escoje el usuario ingrasado por teclado.
+	 * @param pizza se llama como objeto pizza a la clase Producto para crear una variable que recoje los datos que escojio el usuario.
+	 * @param validar se llama a un metodo de la clase validar para comprobar si el dato igresado es valido en este caso un numero entero.
+	 * @return retorna una variable pizza de la clase Producto con los datos obtenidos de este metodo.
+	 * */
+	public static Producto platos(int opcion, Producto pizza,Validar validar){
 		do {
 			System.out.println("¿Que pizza desea llevar? (Ingrese el numero correspondiente) \n1- Pizza Mediterranea\n2- Pizza Vegetariana\n3- Pizza Texana\n4- Pizza Americana");
-			opcion = validacion.validarEntero();
+			opcion = validar.validarEntero();
 			System.out.println(opcion);
 			switch (opcion) {
 				case 1:
@@ -57,14 +61,20 @@ public class Pedido {
 					break;
 			}
 		}while(opcion == 0 || opcion > 4);
-
 		return pizza;
 	}
 
-	public static Producto tamano(int opcion, Producto pizza, Validar validacion) {
+	/**
+	 * Metodo que permite escoger el tamaño de pizza que se ofrece y luego obtener estos datos para mandarlos al metodo eleccionPizza.
+	 * @param opcion pertenece al valor que escoje el usuario ingrasado por teclado.
+	 * @param pizza se llama como objeto pizza a la clase Producto para crear una variable que recoje los datos que escojio el usuario.
+	 * @param validar  se llama a un metodo de la clase validar para comprobar si el dato igresado es valido en este caso un numero entero.
+	 * @return retorna una variable pizza de la clase Producto con los datos obtenidos de este metodo.
+	 * */
+	public static Producto tamano(int opcion, Producto pizza,Validar validar) {
 		do {
 			System.out.println("¿Que tamaño desea? (Ingrese el numero correspondiente) \n1- Chica Valor $5000\n2- Mediana Valor $10000\n3- Grande Valor $15000");
-			opcion = validacion.validarEntero();
+			opcion= validar.validarEntero();
 			switch (opcion) {
 				case 1:
 					pizza.setTamano("Chica");
@@ -84,7 +94,6 @@ public class Pedido {
 		}while(opcion == 0 || opcion > 3);
 		return pizza;
 	}
-
 
 	/**
 	 * Metodo que se encarga de interactuar con el usuario para que pueda ingresar sus datos.

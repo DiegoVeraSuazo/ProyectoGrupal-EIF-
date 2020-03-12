@@ -1,2 +1,0 @@
-
-Producto: {id=1, tipo de Pizza='Pizza Americana', precio=5000.0, tamaño='Chica'} Cliente: {Nombre='DA', R.U.N='200809610'} Hora del pedido: 2020/03/11 09:36:09
