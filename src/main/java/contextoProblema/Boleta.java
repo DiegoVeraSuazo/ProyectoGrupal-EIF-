@@ -18,6 +18,9 @@ public class Boleta {
 
     /**
      * Metodo que registra un pedido en el archivo .txt agregandole la hora al pedido.
+     * @param pedido instancia para llamar a la clase Pedido.
+     * @param gestorArchivo instancia para llamar a la clase GestorAerchivo.
+     * @return retorna una nueva linea para el archivo boletas.txt que corresponde a un nuevo pedido.
      * */
     public String agregarPedido(Pedido pedido, GestorArchivo gestorArchivo){
         String pizza =  pedido.eleccionPizza();
@@ -25,8 +28,6 @@ public class Boleta {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         tiempoPedido = dateFormat.format(date);
-        String boleta = gestorArchivo.nuevaLineaTexto(tiempoPedido,pizza,cliente,"boletas.txt");
-        return boleta;
+        return gestorArchivo.nuevaLineaTexto(tiempoPedido,pizza,cliente,"boletas.txt");
     }
-
 }

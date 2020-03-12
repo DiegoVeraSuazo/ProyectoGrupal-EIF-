@@ -1,2 +1,2 @@
 
-Producto: {id=1, tipo de Pizza='Pizza Vegetariana', precio=15000.0, tamaño='Grande'} Cliente: {Nombre='pablo', R.U.N='13200317-3'} Hora del pedido: 2020/03/12 20:00:15
+  Hora del pedido: {id, pizza, tamano, precio, nombreCliente, runCliente, horaPedido}
