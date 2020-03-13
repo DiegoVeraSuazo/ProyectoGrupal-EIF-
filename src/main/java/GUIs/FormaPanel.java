@@ -16,7 +16,7 @@ public class FormaPanel extends JPanel {
     private JButton okBtn;
     private FormListener formListener;
     private JList listaPedido;
-    private JComboBox comboEmp;
+    private JComboBox comboTam;
 
 
     public FormaPanel(){
@@ -32,7 +32,7 @@ public class FormaPanel extends JPanel {
         campoNombre = new JTextField(15);
         campoCorreo = new JTextField(20);
         listaPedido = new JList();
-        comboEmp = new JComboBox();
+        comboTam = new JComboBox();
 
         // Set up list box
         DefaultListModel modeloPedido = new DefaultListModel();
@@ -44,16 +44,16 @@ public class FormaPanel extends JPanel {
 
         listaPedido.setPreferredSize(new Dimension(120, 75));
         listaPedido.setBorder(BorderFactory.createEtchedBorder());
-        listaPedido.setSelectedIndex(1);
+        listaPedido.setSelectedIndex(0);
 
         // Set up combo box
         DefaultComboBoxModel modeloTamaño = new DefaultComboBoxModel();
         modeloTamaño.addElement("Pequeña");
         modeloTamaño.addElement("Mediana");
         modeloTamaño.addElement("Grande");
-        comboEmp.setModel(modeloTamaño);
-        comboEmp.setSelectedIndex(0);
-        comboEmp.setEditable(true);
+        comboTam.setModel(modeloTamaño);
+        comboTam.setSelectedIndex(0);
+        comboTam.setEditable(true);
 
         okBtn = new JButton("OK");
 
@@ -62,11 +62,11 @@ public class FormaPanel extends JPanel {
                 String nombre = campoNombre.getText();
                 String correo = campoCorreo.getText();
                 Pedido pedido = (Pedido) listaPedido.getSelectedValue();
-                String gatoEmp = (String)comboEmp.getSelectedItem();
+                String tamanoEmp = (String)comboTam.getSelectedItem();
 
-                System.out.println(pedido.getId() + "|" + gatoEmp);
+                System.out.println(pedido.getId() + "|" + tamanoEmp);
 
-                FormaEvento ev = new FormaEvento(this, nombre, correo, pedido.getId());
+                FormaEvento ev = new FormaEvento(this, nombre, correo, pedido.getId(), comboTam.getSelectedIndex());
 
                 if (formListener != null) {
                     formListener.formaEventoOcurrido(ev);
@@ -75,7 +75,7 @@ public class FormaPanel extends JPanel {
             }
         });
 
-        Border bordeInterno = BorderFactory.createTitledBorder("Add Person");
+        Border bordeInterno = BorderFactory.createTitledBorder("Añadir Pedido");
         Border bordeExterno = BorderFactory.createEmptyBorder(5,5,5,5);
 
         setBorder(BorderFactory.createCompoundBorder(bordeExterno,bordeInterno));
@@ -158,7 +158,7 @@ public class FormaPanel extends JPanel {
         gc.gridx = 1;
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
         gc.insets = new Insets(0,0,0,0);
-        add(comboEmp, gc);
+        add(comboTam, gc);
 
         ///Next Row///
 

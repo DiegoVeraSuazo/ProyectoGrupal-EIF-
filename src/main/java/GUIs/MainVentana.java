@@ -37,8 +37,9 @@ public class MainVentana extends JFrame{
                String nombre = e.getNombre();
                String correo = e.getCorreo();
                int idPizza = e.getIdPizza();
+               int idTamano = e.getIdTamano();
 
-               panelTexto.textoAdjunto(nombre + ": " + correo + ": " + idPizza
+               panelTexto.textoAdjunto(nombre + ": " + correo + ": " + idPizza + ": " + idTamano
                        +"\n");
 
            }
