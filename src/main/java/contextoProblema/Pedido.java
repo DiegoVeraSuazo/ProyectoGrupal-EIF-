@@ -113,7 +113,6 @@ public class Pedido {
 			cliente.setRun(teclado.next());
 		}
 
-		String nuevoCliente = cliente.toString();
-		return nuevoCliente;
+		return cliente.toString();
 	}
 }
