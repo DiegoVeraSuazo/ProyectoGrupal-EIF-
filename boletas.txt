@@ -1,2 +1,2 @@
 
-Producto: {Id=1, Tipo de Pizza='Pizza Vegetariana', Precio=15000.0, Tamaño='Grande'} Cliente: {Nombre='wqetj', Mail='17594182-7'} Hora del pedido: 2020/03/12 23:05:27
+Producto: {Id=1, Tipo de Pizza='Pizza Mediterranea', Precio=5000.0, Tamaño='Chica'} Cliente: {Nombre='ewqef', Mail='nombre@correo.com'} Hora del pedido: 2020/03/12 23:35:36

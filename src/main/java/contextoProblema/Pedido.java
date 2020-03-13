@@ -106,10 +106,11 @@ public class Pedido {
 		System.out.println("Ingrese su nombre completo");
 		cliente.setNombre(teclado.nextLine());
 
-		System.out.println("Ingrese su mail");
+		System.out.println("Ingrese su mail (ejemplo: nombre@correo.com)");
 		cliente.setMail(teclado.next());
-		while (validar.validarRut(cliente.getMail()) == false){
-			System.out.println("rut invalido ingrese nuevamente");
+		while (validar.validarMail(cliente.getMail()) == false){
+			System.out.println("mail invalido ingrese nuevamente...");
+			System.out.println("Ingrese su mail (ejemplo: nombre@correo.com)");
 			cliente.setMail(teclado.next());
 		}
 		return cliente.toString();

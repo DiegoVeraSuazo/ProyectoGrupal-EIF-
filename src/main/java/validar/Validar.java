@@ -2,6 +2,8 @@ package validar;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Validar {
 
@@ -32,33 +34,21 @@ public class Validar {
     }
 
     /**
-     * Metodo que valida el rut ingresado por el usuario.
-     * @param rut variable de tipo String ingresado por el usuario que corresponde al rut de este.
-     * @return retorna una variable de tipo boleano que certifica con un true que el rut ingresado por consola es verdadero.
+     * Metodo que valida el mail ingresado por el usuario.
+     * @param mail variable de tipo String ingresado por el usuario que corresponde al mail de este.
+     * @return retorna una variable de tipo boleano que certifica con un true que el mail ingresado por consola es verdadero.
      * */
-    public static boolean validarRut(String rut) {
-        boolean validacion = false;
-        try {
-            rut = rut.toUpperCase();
-            rut = rut.replace(".", "");
-            rut = rut.replace("-", "");
-            rut = rut.replace("k", "");
-            rut = rut.replace("K", "");
-            int rutAux = Integer.parseInt(rut.substring(0, rut.length() - 1));
-            char dv = rut.charAt(rut.length() - 1);
-            int m = 0;
-
-            int s;
-            for(s = 1; rutAux != 0; rutAux /= 10) {
-                s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+    public static boolean validarMail(String mail){
+        boolean validar = false;
+        try{
+            Pattern pattern = Pattern
+                    .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+            Matcher mather = pattern.matcher(mail);
+            if(mather.find() == true){
+                validar = true;
             }
-
-            if (dv == (char)(s != 0 ? s + 47 : 75)) {
-                validacion = true;
-            }
-        } catch (NumberFormatException var6) {
-        } catch (Exception var7) {
-        }
-        return validacion;
+        }catch (Exception e){}
+        return validar;
     }
 }
