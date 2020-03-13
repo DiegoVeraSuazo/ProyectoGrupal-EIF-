@@ -8,14 +8,6 @@ public class Boleta {
 
     private String tiempoPedido;
 
-    public String getTiempoPedido() {
-        return tiempoPedido;
-    }
-
-    public void setTiempoPedido(String tiempoPedido) {
-        this.tiempoPedido = tiempoPedido;
-    }
-
     /**
      * Metodo que registra un pedido en el archivo .txt agregandole la hora al pedido.
      * @param pedido instancia para llamar a la clase Pedido.

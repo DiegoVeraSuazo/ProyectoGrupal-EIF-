@@ -12,8 +12,11 @@ import static org.junit.Assert.*;
 
 public class GestorArchivoTest {
 
+    String nombreArchivo;
+
     @Before
     public void setUp() throws Exception {
+        nombreArchivo = "boletas.txt";
     }
 
     @Test
@@ -22,11 +25,11 @@ public class GestorArchivoTest {
 
     @Test
     public void nuevaLineaTexto() {
+
     }
 
     @Test
     public void verArchivo() throws IOException {
-        String nombreArchivo = "boletas.txt";
         String texto = GestorArchivo.verArchivo(nombreArchivo);
         Path archivo = Paths.get(nombreArchivo);
         String salto = "";

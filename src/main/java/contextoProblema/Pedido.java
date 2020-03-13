@@ -102,10 +102,13 @@ public class Pedido {
 		Cliente cliente = new Cliente();
 		Scanner teclado = new Scanner(System.in);
 		Validar validar = new Validar();
-
-		System.out.println("Ingrese su nombre completo");
+		System.out.println("Ingrese su nombre de usuario");
 		cliente.setNombre(teclado.nextLine());
-
+		while (validar.validarUsuario(cliente.getNombre()) == false){
+			System.out.println("no se ingreso un nombre ingrese nuevamente...");
+			System.out.println("Ingrese su nombre completo");
+			cliente.setNombre(teclado.nextLine());
+		}
 		System.out.println("Ingrese su mail (ejemplo: nombre@correo.com)");
 		cliente.setMail(teclado.next());
 		while (validar.validarMail(cliente.getMail()) == false){

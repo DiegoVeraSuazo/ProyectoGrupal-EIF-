@@ -51,4 +51,21 @@ public class Validar {
         }catch (Exception e){}
         return validar;
     }
+
+    /**
+     * Metodo que valida el nombre ingresado por el usuario.
+     * @param nombre variable de tipo String ingresado por el usuario que corresponde al nombre de usuario de este.
+     * @return retorna una variable de tipo boleano que certifica con un true que el nombre de usuario ingresado por consola es verdadero.
+     * */
+    public static boolean validarUsuario(String nombre){
+        boolean validar = false;
+        try{
+            Pattern pattern = Pattern.compile("^[a-zA-Z]");
+            Matcher mather = pattern.matcher(nombre);
+            if(mather.find() == true){
+                validar = true;
+            }
+        }catch (Exception e){}
+        return validar;
+    }
 }
