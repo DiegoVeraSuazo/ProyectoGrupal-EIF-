@@ -3,7 +3,7 @@ package contextoProblema;
 public class Cliente {
 
 	private String nombre;
-	private String run;
+	private String mail;
 
 	public Cliente() {
 	}
@@ -18,19 +18,19 @@ public class Cliente {
 	public String getNombre() { return this.nombre; }
 
 	/**
-	 * @param run
+	 * @param mail
 	 */
-	public void setRun(String run) {
-		this.run = run;
+	public void setRun(String mail) {
+		this.mail = mail;
 	}
 
-	public String getRun() { return this.run; }
+	public String getRun() { return this.mail; }
 
 	@Override
     public String toString() {
         return "Cliente: {" +
                 "Nombre='" + nombre + '\'' +
-                ", R.U.N='" + run + '\'' +
+                ", Mail='" + mail + '\'' +
                 '}';
     }
 }

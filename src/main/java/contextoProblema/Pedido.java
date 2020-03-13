@@ -70,7 +70,7 @@ public class Pedido {
 	 * @param validar  se llama a un metodo de la clase validar para comprobar si el dato igresado es valido en este caso un numero entero.
 	 * @return retorna una variable pizza de la clase Producto con los datos obtenidos de este metodo.
 	 * */
-	public static Producto tamano(int opcion, Producto pizza,Validar validar) {
+	public static Producto tamano(int opcion, Producto pizza, Validar validar) {
 		do {
 			System.out.println("¿Que tamaño desea? (Ingrese el numero correspondiente) \n1- Chica Valor $5000\n2- Mediana Valor $10000\n3- Grande Valor $15000");
 			opcion= validar.validarEntero();
@@ -106,7 +106,7 @@ public class Pedido {
 		System.out.println("Ingrese su nombre completo");
 		cliente.setNombre(teclado.nextLine());
 
-		System.out.println("Ingrese su rut");
+		System.out.println("Ingrese su mail");
 		cliente.setRun(teclado.next());
 		while (validar.validarRut(cliente.getRun()) == false){
 			System.out.println("rut invalido ingrese nuevamente");

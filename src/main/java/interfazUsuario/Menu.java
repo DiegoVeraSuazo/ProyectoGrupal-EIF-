@@ -41,7 +41,7 @@ public class Menu {
                 break;
             case 3:
                 gestorArchivo.vaciarArchivo("boletas.txt");
-                gestorArchivo.nuevaLineaTexto("{id, pizza, tamano, precio, nombreCliente, runCliente, horaPedido}","","","boletas.txt");
+                gestorArchivo.nuevaLineaTexto("{id, pizza, tamano, precio, nombreCliente, mailCliente, horaPedido}","","","boletas.txt");
                 break;
             case 4:
                 Ventana ventana = new Ventana();
