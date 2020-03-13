@@ -107,10 +107,10 @@ public class Pedido {
 		cliente.setNombre(teclado.nextLine());
 
 		System.out.println("Ingrese su mail");
-		cliente.setRun(teclado.next());
-		while (validar.validarRut(cliente.getRun()) == false){
+		cliente.setMail(teclado.next());
+		while (validar.validarRut(cliente.getMail()) == false){
 			System.out.println("rut invalido ingrese nuevamente");
-			cliente.setRun(teclado.next());
+			cliente.setMail(teclado.next());
 		}
 		return cliente.toString();
 	}

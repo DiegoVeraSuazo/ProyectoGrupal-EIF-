@@ -20,11 +20,11 @@ public class Cliente {
 	/**
 	 * @param mail
 	 */
-	public void setRun(String mail) {
+	public void setMail(String mail) {
 		this.mail = mail;
 	}
 
-	public String getRun() { return this.mail; }
+	public String getMail() { return this.mail; }
 
 	@Override
     public String toString() {
