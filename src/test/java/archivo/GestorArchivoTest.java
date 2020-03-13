@@ -25,7 +25,7 @@ public class GestorArchivoTest {
 
     @Test
     public void nuevaLineaTexto() {
-
+        
     }
 
     @Test
