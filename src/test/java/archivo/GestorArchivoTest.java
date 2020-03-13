@@ -1,6 +1,5 @@
 package archivo;
 
-import contextoProblema.Boleta;
 import org.junit.Before;
 import org.junit.Test;
 
