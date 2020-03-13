@@ -112,7 +112,6 @@ public class Pedido {
 			System.out.println("rut invalido ingrese nuevamente");
 			cliente.setRun(teclado.next());
 		}
-
 		return cliente.toString();
 	}
 }
