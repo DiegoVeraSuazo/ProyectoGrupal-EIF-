@@ -10,12 +10,12 @@ import java.awt.event.ActionListener;
 public class FormaPanel extends JPanel {
 
     private JLabel etiquetaNombre;
-    private JLabel etiquetaOcupacion;
+    private JLabel etiquetaCorreo;
     private JTextField campoNombre;
-    private JTextField campoOcupacion;
+    private JTextField campoCorreo;
     private JButton okBtn;
     private FormListener formListener;
-    private JList listaEdad;
+    private JList listaPedido;
     private JComboBox comboEmp;
 
 
@@ -26,30 +26,31 @@ public class FormaPanel extends JPanel {
         setPreferredSize(dim);
         System.out.println(dim);
 
-        etiquetaNombre = new JLabel("Name: ");
-        etiquetaOcupacion = new JLabel("Ocupacion: ");
+        etiquetaNombre = new JLabel("Nombre: ");
+        etiquetaCorreo = new JLabel("Correo: ");
         campoNombre = new JTextField(10);
-        campoOcupacion = new JTextField(10);
-        listaEdad = new JList();
+        campoCorreo = new JTextField(10);
+        listaPedido = new JList();
         comboEmp = new JComboBox();
 
         // Set up list box
-        DefaultListModel modeloEdad = new DefaultListModel();
-        modeloEdad.addElement(new CategoriaEdad(0,"Bajo 18"));
-        modeloEdad.addElement(new CategoriaEdad(1,"18 a 65"));
-        modeloEdad.addElement(new CategoriaEdad(2,"Sobre 65"));
-        listaEdad.setModel(modeloEdad);
+        DefaultListModel modeloPedido = new DefaultListModel();
+        modeloPedido.addElement(new Pedido(0,"Pizza Vegetariana"));
+        modeloPedido.addElement(new Pedido(1,"Pizza Texana"));
+        modeloPedido.addElement(new Pedido(2,"Pizza Americana"));
+        modeloPedido.addElement(new Pedido(3,"Pizza Mediterranea"));
+        listaPedido.setModel(modeloPedido);
 
-        listaEdad.setPreferredSize(new Dimension(105, 70));
-        listaEdad.setBorder(BorderFactory.createEtchedBorder());
-        listaEdad.setSelectedIndex(1);
+        listaPedido.setPreferredSize(new Dimension(115, 75));
+        listaPedido.setBorder(BorderFactory.createEtchedBorder());
+        listaPedido.setSelectedIndex(1);
 
         // Set up combo box
-        DefaultComboBoxModel modeloEmp = new DefaultComboBoxModel();
-        modeloEmp.addElement("Empleado");
-        modeloEmp.addElement("Su Propio Empleado");
-        modeloEmp.addElement("Desempleado");
-        comboEmp.setModel(modeloEmp);
+        DefaultComboBoxModel modeloTamaño = new DefaultComboBoxModel();
+        modeloTamaño.addElement("Pequeña");
+        modeloTamaño.addElement("Mediana");
+        modeloTamaño.addElement("Grande");
+        comboEmp.setModel(modeloTamaño);
         comboEmp.setSelectedIndex(0);
         comboEmp.setEditable(true);
 
@@ -58,13 +59,13 @@ public class FormaPanel extends JPanel {
         okBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String nombre = campoNombre.getText();
-                String ocupacion = campoOcupacion.getText();
-                CategoriaEdad edadGato = (CategoriaEdad)listaEdad.getSelectedValue();
+                String correo = campoCorreo.getText();
+                Pedido pedido = (Pedido) listaPedido.getSelectedValue();
                 String gatoEmp = (String)comboEmp.getSelectedItem();
 
-                System.out.println(edadGato.getId() + "|" + gatoEmp);
+                System.out.println(pedido.getId() + "|" + gatoEmp);
 
-                FormaEvento ev = new FormaEvento(this, nombre, ocupacion, edadGato.getId());
+                FormaEvento ev = new FormaEvento(this, nombre, correo, pedido.getId());
 
                 if (formListener != null) {
                     formListener.formaEventoOcurrido(ev);
@@ -116,13 +117,13 @@ public class FormaPanel extends JPanel {
         gc.gridx = 0;
         gc.insets = new Insets(0,0,0,5);
         gc.anchor = GridBagConstraints.LINE_END;
-        add(etiquetaOcupacion, gc);
+        add(etiquetaCorreo, gc);
 
         gc.gridy = 1;
         gc.gridx = 1;
         gc.insets = new Insets(0,0,0,0);
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
-        add(campoOcupacion, gc);
+        add(campoCorreo, gc);
 
         ///Next Row///
 
@@ -134,12 +135,12 @@ public class FormaPanel extends JPanel {
         gc.gridx = 0;
         gc.insets = new Insets(0,0,0,0);
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
-        add(new JLabel("Edad: "), gc);
+        add(new JLabel("Pizza: "), gc);
 
         gc.gridx = 1;
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
         gc.insets = new Insets(0,0,0,0);
-        add(listaEdad, gc);
+        add(listaPedido, gc);
 
         ///Next Row///
 
@@ -151,7 +152,7 @@ public class FormaPanel extends JPanel {
         gc.gridx = 0;
         gc.insets = new Insets(0,0,0,0);
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
-        add(new JLabel("Employment: "), gc);
+        add(new JLabel("Tamaño: "), gc);
 
         gc.gridx = 1;
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
@@ -178,11 +179,11 @@ public class FormaPanel extends JPanel {
     }
 }
 
-class CategoriaEdad {
+class Pedido {
     private int id;
     private String texto;
 
-    public CategoriaEdad(int id, String texto) {
+    public Pedido(int id, String texto) {
         this.id = id;
         this.texto = texto;
     }

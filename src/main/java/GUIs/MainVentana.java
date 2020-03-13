@@ -35,10 +35,10 @@ public class MainVentana extends JFrame{
         formaPanel.setFormListener(new FormListener() {
            public void formaEventoOcurrido(FormaEvento e) {
                String nombre = e.getNombre();
-               String ocupacion = e.getOcupacion();
-               int edadGato = e.getCategoriaEdad();
+               String correo = e.getCorreo();
+               int idPizza = e.getIdPizza();
 
-               panelTexto.textoAdjunto(nombre + ": " + ocupacion + ": " + edadGato
+               panelTexto.textoAdjunto(nombre + ": " + correo + ": " + idPizza
                        +"\n");
 
            }

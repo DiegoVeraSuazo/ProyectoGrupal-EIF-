@@ -6,8 +6,8 @@ public class FormaEvento extends EventObject {
 
 
     private String nombre;
-    private String ocupacion;
-    private int categoriaEdad;
+    private String correo;
+    private int idPizza;
 
     /**
      * Constructs a prototypical Event.
@@ -19,12 +19,12 @@ public class FormaEvento extends EventObject {
         super(source);
     }
 
-    public FormaEvento(Object source, String nombre, String ocupacion, int edadGato) {
+    public FormaEvento(Object source, String nombre, String correo, int idPizza) {
         super(source);
 
         this.nombre = nombre;
-        this.ocupacion = ocupacion;
-        this.categoriaEdad = edadGato;
+        this.correo = correo;
+        this.idPizza = idPizza;
     }
 
     public String getNombre() {
@@ -35,19 +35,19 @@ public class FormaEvento extends EventObject {
         this.nombre = nombre;
     }
 
-    public String getOcupacion() {
-        return ocupacion;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setOcupacion(String ocupacion) {
-        this.ocupacion = ocupacion;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public int getCategoriaEdad() {
-        return categoriaEdad;
+    public int getIdPizza() {
+        return idPizza;
     }
 
-    public void setCategoriaEdad(int categoriaEdad) {
-        this.categoriaEdad = categoriaEdad;
+    public void setIdPizza(int idPizza) {
+        this.idPizza = idPizza;
     }
 }

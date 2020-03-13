@@ -1,2 +1,0 @@
-
-Producto: {id=1, tipo de Pizza='Pizza Vegetariana', precio=15000.0, tamaño='Grande'} Cliente: {Nombre='qweerertyu', R.U.N='13526110-6'} Hora del pedido: 2020/03/12 21:29:50
