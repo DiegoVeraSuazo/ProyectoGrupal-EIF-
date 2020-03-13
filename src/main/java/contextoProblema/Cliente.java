@@ -5,12 +5,14 @@ public class Cliente {
 	private String nombre;
 	private String run;
 
+	public Cliente() {
+	}
+
 	public String getNombre() {
 		return this.nombre;
 	}
 
 	/**
-	 * 
 	 * @param nombre
 	 */
 	public void setNombre(String nombre) {
@@ -22,7 +24,6 @@ public class Cliente {
 	}
 
 	/**
-	 * 
 	 * @param run
 	 */
 	public void setRun(String run) {

@@ -14,6 +14,9 @@ public class Producto {
 		return id;
 	}
 
+	/**
+	 * @param id
+	 * */
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -23,7 +26,6 @@ public class Producto {
 	}
 
 	/**
-	 * 
 	 * @param tipoPizza
 	 */
 	public void setTipoPizza(String tipoPizza) {
@@ -35,7 +37,6 @@ public class Producto {
 	}
 
 	/**
-	 * 
 	 * @param precio
 	 */
 	public void setPrecio(double precio) {
@@ -47,7 +48,6 @@ public class Producto {
 	}
 
 	/**
-	 * 
 	 * @param tamano
 	 */
 	public void setTamano(String tamano) {
