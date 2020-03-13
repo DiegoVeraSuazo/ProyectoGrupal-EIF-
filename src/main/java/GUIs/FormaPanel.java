@@ -22,14 +22,15 @@ public class FormaPanel extends JPanel {
     public FormaPanel(){
 
         Dimension dim = getPreferredSize();
-        dim.width = 250;
+        dim.width = 300;
+        dim.height = 15;
         setPreferredSize(dim);
         System.out.println(dim);
 
         etiquetaNombre = new JLabel("Nombre: ");
         etiquetaCorreo = new JLabel("Correo: ");
-        campoNombre = new JTextField(10);
-        campoCorreo = new JTextField(10);
+        campoNombre = new JTextField(15);
+        campoCorreo = new JTextField(20);
         listaPedido = new JList();
         comboEmp = new JComboBox();
 
@@ -41,7 +42,7 @@ public class FormaPanel extends JPanel {
         modeloPedido.addElement(new Pedido(3,"Pizza Mediterranea"));
         listaPedido.setModel(modeloPedido);
 
-        listaPedido.setPreferredSize(new Dimension(115, 75));
+        listaPedido.setPreferredSize(new Dimension(120, 75));
         listaPedido.setBorder(BorderFactory.createEtchedBorder());
         listaPedido.setSelectedIndex(1);
 
