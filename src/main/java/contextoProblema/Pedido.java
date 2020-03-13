@@ -28,8 +28,7 @@ public class Pedido {
 			contador++;
 		}
 		pizza.setId(contador);
-		String nuevaPizza = pizza.toString();
-		return nuevaPizza;
+		return pizza.toString();
 	}
 
 	/**

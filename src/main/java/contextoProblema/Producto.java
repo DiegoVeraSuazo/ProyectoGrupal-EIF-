@@ -10,20 +10,12 @@ public class Producto {
     public Producto() {
     }
 
-	public int getId() {
-		return id;
-	}
-
 	/**
 	 * @param id
 	 * */
-	public void setId(int id) {
-		this.id = id;
-	}
+	public void setId(int id) { this.id = id; }
 
-	public String getTipoPizza() {
-		return this.tipoPizza;
-	}
+	public int getId() { return id; }
 
 	/**
 	 * @param tipoPizza
@@ -32,9 +24,7 @@ public class Producto {
 		this.tipoPizza = tipoPizza;
 	}
 
-	public double getPrecio() {
-		return this.precio;
-	}
+	public String getTipoPizza() { return this.tipoPizza; }
 
 	/**
 	 * @param precio
@@ -43,9 +33,7 @@ public class Producto {
 		this.precio = precio;
 	}
 
-	public String getTamano() {
-		return this.tamano;
-	}
+	public double getPrecio() { return this.precio; }
 
 	/**
 	 * @param tamano
@@ -53,6 +41,8 @@ public class Producto {
 	public void setTamano(String tamano) {
 		this.tamano = tamano;
 	}
+
+	public String getTamano() { return this.tamano; }
 
 	@Override
 	public String toString() {

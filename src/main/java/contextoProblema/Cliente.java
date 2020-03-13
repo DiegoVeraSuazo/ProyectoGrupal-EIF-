@@ -8,10 +8,6 @@ public class Cliente {
 	public Cliente() {
 	}
 
-	public String getNombre() {
-		return this.nombre;
-	}
-
 	/**
 	 * @param nombre
 	 */
@@ -19,9 +15,7 @@ public class Cliente {
 		this.nombre = nombre;
 	}
 
-	public String getRun() {
-		return this.run;
-	}
+	public String getNombre() { return this.nombre; }
 
 	/**
 	 * @param run
@@ -30,7 +24,9 @@ public class Cliente {
 		this.run = run;
 	}
 
-    @Override
+	public String getRun() { return this.run; }
+
+	@Override
     public String toString() {
         return "Cliente: {" +
                 "Nombre='" + nombre + '\'' +
