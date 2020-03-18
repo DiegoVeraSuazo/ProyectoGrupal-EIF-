@@ -7,8 +7,7 @@ import java.awt.event.ActionListener;
 
 public class Toolbar extends JPanel implements ActionListener {
 
-    private JButton helloButoon;
-    private JButton goodbyeButton;
+    private JButton pizzasButton;
 
     //private PanelTexto panelTexto;
     private StringListener textListener;
@@ -17,16 +16,15 @@ public class Toolbar extends JPanel implements ActionListener {
 
         setBorder(BorderFactory.createEtchedBorder());
 
-        helloButoon = new JButton("Hello");
-        goodbyeButton = new JButton("Goodbye");
 
-        helloButoon.addActionListener(this);
-        goodbyeButton.addActionListener(this);
+        pizzasButton = new JButton("Pizzas");
+
+
+        pizzasButton.addActionListener(this);
 
         setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        add(helloButoon);
-        add(goodbyeButton);
+        add(pizzasButton);
 
     }
 
@@ -48,19 +46,13 @@ public class Toolbar extends JPanel implements ActionListener {
 
         JButton clicked = (JButton) event.getSource();
 
-        if(clicked == helloButoon){
+        if(clicked == pizzasButton){
             //panelTexto.textoAdjunto("Hello\n");
             if(textListener != null){
-                textListener.textoEmitido("Hello\n");
+                textListener.textoEmitido("deVeras\n");
             }
-            System.out.println("Hello");
-        }else{
-            //panelTexto.textoAdjunto("Goodbye\n");
-            if(textListener != null){
-                textListener.textoEmitido("Goodbye\n");
-            }
-            System.out.println("Goodbye");
-        }
+            System.out.println("deVeras");
 
     }
+}
 }
