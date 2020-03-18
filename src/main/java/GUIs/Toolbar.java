@@ -53,6 +53,6 @@ public class Toolbar extends JPanel implements ActionListener {
             }
             System.out.println("deVeras");
 
+        }
     }
-}
 }
