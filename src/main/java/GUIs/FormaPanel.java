@@ -48,9 +48,9 @@ public class FormaPanel extends JPanel {
 
         // Set up combo box
         DefaultComboBoxModel modeloTamaño = new DefaultComboBoxModel();
-        modeloTamaño.addElement("Pequeña");
-        modeloTamaño.addElement("Mediana");
-        modeloTamaño.addElement("Grande");
+        modeloTamaño.addElement("Pequeña $5000");
+        modeloTamaño.addElement("Mediana $10000");
+        modeloTamaño.addElement("Grande $15000");
         comboTam.setModel(modeloTamaño);
         comboTam.setSelectedIndex(0);
         comboTam.setEditable(true);
