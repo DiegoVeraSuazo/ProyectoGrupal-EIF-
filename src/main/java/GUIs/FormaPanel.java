@@ -68,6 +68,7 @@ public class FormaPanel extends JPanel {
 
                 FormaEvento ev = new FormaEvento(this, nombre, correo, pedido.getId(), comboTam.getSelectedIndex());
 
+
                 if (formListener != null) {
                     formListener.formaEventoOcurrido(ev);
                 }

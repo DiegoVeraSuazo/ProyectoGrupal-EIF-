@@ -13,6 +13,7 @@ public class MainVentana extends JFrame{
     private Toolbar toolbar;
     private FormaPanel formaPanel;
 
+
     public MainVentana() {
 
         super("Eat it Fast");
@@ -43,6 +44,8 @@ public class MainVentana extends JFrame{
                        +"\n");
 
            }
+
+
 
         });
 
