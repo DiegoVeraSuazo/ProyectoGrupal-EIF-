@@ -1,5 +1,7 @@
 package GUIs;
 
+import archivo.GestorArchivo;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,6 +11,7 @@ public class Toolbar extends JPanel implements ActionListener {
 
     private JButton acercaDeNosotrosButton;
     private JButton instrucciones;
+    private JButton registroBoletas;
 
     //private PanelTexto panelTexto;
     private StringListener textListener;
@@ -20,14 +23,18 @@ public class Toolbar extends JPanel implements ActionListener {
 
         acercaDeNosotrosButton = new JButton("Acerca de Nosotros");
         instrucciones = new JButton("Instrucciones");
+        registroBoletas = new JButton("Registros de Boletas emitidas");
 
         acercaDeNosotrosButton.addActionListener(this);
         instrucciones.addActionListener(this);
+        registroBoletas.addActionListener(this);
+
 
         setLayout(new FlowLayout(FlowLayout.LEFT));
 
         add(acercaDeNosotrosButton);
         add(instrucciones);
+        add(registroBoletas);
     }
 
 /*
@@ -46,6 +53,7 @@ public class Toolbar extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent event) {
 
         JButton clicked = (JButton) event.getSource();
+        GestorArchivo gestor = new GestorArchivo();
 
         if(clicked == acercaDeNosotrosButton){
             //panelTexto.textoAdjunto("Hello\n");
@@ -58,6 +66,12 @@ public class Toolbar extends JPanel implements ActionListener {
             //panelTexto.textoAdjunto("Hello\n");
             if(textListener != null){
                 textListener.textoEmitido("1- Ingrese su nombre en la casilla que lo indique.\n2- Ingrese su mail en la casilla que lo indique.\n3- Escoja el tipo de pizza.\n4- Escoja el tamaño de pizza.\n5- Una vez que este decidido presione el boton OK para generar su boleta.");
+            }
+        }
+
+        if(clicked == registroBoletas){
+            if(textListener != null){
+                textListener.textoEmitido(gestor.verArchivo("boletas.txt"));
             }
         }
 }
