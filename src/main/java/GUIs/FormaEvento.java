@@ -22,7 +22,6 @@ public class FormaEvento extends EventObject {
 
     public FormaEvento(Object source, String nombre, String correo, int idPizza, int idTamano) {
         super(source);
-
         this.nombre = nombre;
         this.correo = correo;
         this.idPizza = idPizza;

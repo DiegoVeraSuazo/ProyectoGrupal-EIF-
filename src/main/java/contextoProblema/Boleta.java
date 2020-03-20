@@ -14,9 +14,9 @@ public class Boleta {
      * @param gestorArchivo instancia para llamar a la clase GestorAerchivo.
      * @return retorna una nueva linea para el archivo boletas.txt que corresponde a un nuevo pedido.
      * */
-    public String agregarPedido(Pedido pedido, GestorArchivo gestorArchivo){
-        String pizza =  pedido.eleccionPizza();
-        String cliente = pedido.registrarCliente();
+    public String agregarPedido(Pedido pedido, GestorArchivo gestorArchivo, String nombre, String mail, String tipoPizza, String tamanoPizza){
+        String pizza = pedido.pizzaPedida(tipoPizza,tamanoPizza);
+        String cliente = pedido.registrarCliente(nombre,mail);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         tiempoPedido = dateFormat.format(date);
