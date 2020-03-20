@@ -56,28 +56,7 @@ public class FormaPanel extends JPanel {
         comboTam.setEditable(true);
 
         okBtn = new JButton("OK");
-
-        okBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-                String nombre = campoNombre.getText();
-
-                String correo = campoCorreo.getText();
-
-                Pedido pedido = (Pedido) listaPedido.getSelectedValue();
-                String tamanoEmp = (String)comboTam.getSelectedItem();
-
-                System.out.println(pedido.getId() + "|" + tamanoEmp);
-
-                FormaEvento ev = new FormaEvento(this, nombre, correo, pedido.getId(), comboTam.getSelectedIndex());
-
-
-                if (formListener != null) {
-                    formListener.formaEventoOcurrido(ev);
-                }
-
-            }
-        });
+        accionOkBtn();
 
         Border bordeInterno = BorderFactory.createTitledBorder("Añadir Pedido");
         Border bordeExterno = BorderFactory.createEmptyBorder(5,5,5,5);
@@ -85,6 +64,30 @@ public class FormaPanel extends JPanel {
         setBorder(BorderFactory.createCompoundBorder(bordeExterno,bordeInterno));
 
         layoutComponents();
+    }
+
+    public void accionOkBtn(){
+        okBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            String nombre = campoNombre.getText();
+            String correo = campoCorreo.getText();
+            Pedido pedido = (Pedido) listaPedido.getSelectedValue();
+            String tamanoEmp = (String)comboTam.getSelectedItem();
+            datos(nombre,correo,pedido,tamanoEmp);
+
+            FormaEvento ev = new FormaEvento(this, nombre, correo, pedido.getId(), comboTam.getSelectedIndex());
+
+            if (formListener != null) {
+                formListener.formaEventoOcurrido(ev);
+            }
+
+        }
+
+        });
+    }
+
+    public String datos(String nombre, String correo, Pedido pedido, String tamanoEmp){
+        return null;
     }
 
     public void layoutComponents() {

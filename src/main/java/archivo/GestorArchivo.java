@@ -39,7 +39,7 @@ public class GestorArchivo {
     public static String nuevaLineaTexto(String hora, String pizza, String cliente, String ruta) {
         Path archivo = Paths.get(ruta);
         String texto = "";
-        String linea = pizza+" "+cliente+" Hora del pedido: "+hora;
+        String linea = pizza+"\n"+cliente+"\nHora del pedido: "+hora;
         try {
             texto = Files.readString(archivo);
             String textoAnterior = new String(Files.readAllBytes(archivo));
