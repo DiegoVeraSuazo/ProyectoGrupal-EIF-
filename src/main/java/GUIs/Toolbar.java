@@ -7,7 +7,8 @@ import java.awt.event.ActionListener;
 
 public class Toolbar extends JPanel implements ActionListener {
 
-    private JButton pizzasButton;
+    private JButton acercaDeNosotrosButton;
+    private JButton instrucciones;
 
     //private PanelTexto panelTexto;
     private StringListener textListener;
@@ -17,15 +18,16 @@ public class Toolbar extends JPanel implements ActionListener {
         setBorder(BorderFactory.createEtchedBorder());
 
 
-        pizzasButton = new JButton("Pizzas");
+        acercaDeNosotrosButton = new JButton("Acerca de Nosotros");
+        instrucciones = new JButton("Instrucciones");
 
-
-        pizzasButton.addActionListener(this);
+        acercaDeNosotrosButton.addActionListener(this);
+        instrucciones.addActionListener(this);
 
         setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        add(pizzasButton);
-
+        add(acercaDeNosotrosButton);
+        add(instrucciones);
     }
 
 /*
@@ -38,7 +40,6 @@ public class Toolbar extends JPanel implements ActionListener {
 
     public void setStringListener(StringListener listener){
         this.textListener = listener;
-
     }
 
     @Override
@@ -46,13 +47,18 @@ public class Toolbar extends JPanel implements ActionListener {
 
         JButton clicked = (JButton) event.getSource();
 
-        if(clicked == pizzasButton){
+        if(clicked == acercaDeNosotrosButton){
             //panelTexto.textoAdjunto("Hello\n");
             if(textListener != null){
-                textListener.textoEmitido("deVeras\n");
+                textListener.textoEmitido("Somos una Pagina de Venta para ordenes online de Pizza,\nque trabaja con la emisión de boletas para el retiro de tu pedido en tienda.\n");
             }
-            System.out.println("deVeras");
+        }
 
-    }
+        if(clicked == instrucciones){
+            //panelTexto.textoAdjunto("Hello\n");
+            if(textListener != null){
+                textListener.textoEmitido("1- Ingrese su nombre en la casilla que lo indique.\n2- Ingrese su mail en la casilla que lo indique.\n3- Escoja el tipo de pizza.\n4- Escoja el tamaño de pizza.\n5- Una vez que este decidido presione el boton OK para generar su boleta.");
+            }
+        }
 }
 }
