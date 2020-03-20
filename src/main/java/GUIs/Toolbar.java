@@ -65,7 +65,7 @@ public class Toolbar extends JPanel implements ActionListener {
         if(clicked == instrucciones){
             //panelTexto.textoAdjunto("Hello\n");
             if(textListener != null){
-                textListener.textoEmitido("1- Ingrese su nombre en la casilla que lo indique.\n2- Ingrese su mail en la casilla que lo indique.\n3- Escoja el tipo de pizza.\n4- Escoja el tamaño de pizza.\n5- Una vez que este decidido presione el boton OK para generar su boleta.");
+                textListener.textoEmitido("1- Ingrese su nombre en la casilla que lo indique.\n2- Ingrese su mail en la casilla que lo indique con el formato(ejemplo@ejemplo.com).\n3- Escoja el tipo de pizza.\n4- Escoja el tamaño de pizza.\n5- Una vez que este decidido presione el boton OK para generar su boleta.");
             }
         }
 

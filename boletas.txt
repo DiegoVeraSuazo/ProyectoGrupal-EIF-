@@ -1,4 +1,0 @@
-
-Producto: {Id=1, Tipo de Pizza='Pizza Vegetariana', Precio=5000.0, Tamaño='Pequeña'}
-Cliente: {Nombre='Pablo', Mail='p.nahuelpan02@ufromail.cl'}
-Hora del pedido: 2020/03/20 05:21:31
