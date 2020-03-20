@@ -9,7 +9,6 @@ public class Ventana {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 new MainVentana();
-
                 }
             }
         );

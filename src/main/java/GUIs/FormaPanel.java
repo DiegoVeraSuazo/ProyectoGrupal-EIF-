@@ -85,7 +85,6 @@ public class FormaPanel extends JPanel {
         setBorder(BorderFactory.createCompoundBorder(bordeExterno,bordeInterno));
 
         layoutComponents();
-
     }
 
     public void layoutComponents() {
@@ -179,7 +178,6 @@ public class FormaPanel extends JPanel {
     }
 
     public void setFormListener(FormListener listener) {
-
         this.formListener = listener;
     }
 }

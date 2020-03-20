@@ -118,4 +118,16 @@ public class Pedido {
 		}
 		return cliente.toString();
 	}
+
+	public static String registrarClienteNombre(String nombre){
+		Cliente cliente = new Cliente();
+		Validar validar = new Validar();
+		cliente.setNombre(nombre);
+		while (validar.validarUsuario(cliente.getNombre()) == false){
+			System.out.println("no se ingreso un nombre ingrese nuevamente...");
+			System.out.println("Ingrese su nombre completo");
+			cliente.setNombre(nombre);
+		}
+		return nombre;
+	}
 }
