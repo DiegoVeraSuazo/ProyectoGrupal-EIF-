@@ -64,9 +64,6 @@ public class MainVentana extends JFrame{
         setSize(1000,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-
-
-
     }
 
 }

@@ -60,6 +60,7 @@ public class FormaPanel extends JPanel {
         okBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String nombre = campoNombre.getText();
+
                 String correo = campoCorreo.getText();
                 Pedido pedido = (Pedido) listaPedido.getSelectedValue();
                 String tamanoEmp = (String)comboTam.getSelectedItem();
@@ -81,7 +82,6 @@ public class FormaPanel extends JPanel {
         setBorder(BorderFactory.createCompoundBorder(bordeExterno,bordeInterno));
 
         layoutComponents();
-
     }
 
     public void layoutComponents() {
@@ -175,7 +175,6 @@ public class FormaPanel extends JPanel {
     }
 
     public void setFormListener(FormListener listener) {
-
         this.formListener = listener;
     }
 }
