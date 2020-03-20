@@ -1,7 +1,7 @@
 package GUIs;
 
-public class StringListener {
+public interface StringListener {
 
-    public void textoEmitido(String texto){}
+    public void textoEmitido(String texto);
 
 }

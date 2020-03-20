@@ -59,8 +59,11 @@ public class FormaPanel extends JPanel {
 
         okBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 String nombre = campoNombre.getText();
+
                 String correo = campoCorreo.getText();
+
                 Pedido pedido = (Pedido) listaPedido.getSelectedValue();
                 String tamanoEmp = (String)comboTam.getSelectedItem();
 
