@@ -45,10 +45,10 @@ public class Toolbar extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
 
+        PanelTexto panelTexto = new PanelTexto();
         JButton clicked = (JButton) event.getSource();
 
         if(clicked == acercaDeNosotrosButton){
-
             if(textListener != null){
                 textListener.textoEmitido("Somos una Pagina de Venta para ordenes online de Pizza,\n" +
                         "que trabaja con la emisión de boletas para el retiro de tu pedido en tienda.\n");

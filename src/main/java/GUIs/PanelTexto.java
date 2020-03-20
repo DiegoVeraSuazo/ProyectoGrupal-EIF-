@@ -19,8 +19,8 @@ public class PanelTexto extends JPanel {
 
     public void textoAdjunto(String texto) {
 
+        textArea.setText(null);
         textArea.append(texto);
-
     }
 
 }
