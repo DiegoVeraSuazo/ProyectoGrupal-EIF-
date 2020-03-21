@@ -1,5 +1,6 @@
 package archivo;
 
+import javax.swing.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -45,9 +46,8 @@ public class GestorArchivo {
             String textoAnterior = new String(Files.readAllBytes(archivo));
             texto = textoAnterior+"\n"+linea;
             Files.write(archivo, texto.getBytes());
-            System.out.println(texto);
         } catch (IOException e) {
-            System.out.println("No se pudo agregar una nueva línea");
+            JOptionPane.showMessageDialog(null, "No se pudo ingresar Linea de Texto", "Error", JOptionPane.ERROR_MESSAGE);
         }
         return texto;
     }

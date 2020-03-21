@@ -60,7 +60,7 @@ public class Validar {
     public static boolean validarUsuario(String nombre){
         boolean validar = false;
         try{
-            Pattern pattern = Pattern.compile("^[a-zA-Z]");
+            Pattern pattern = Pattern.compile("^[a-zA-Z\\s]+$");
             Matcher mather = pattern.matcher(nombre);
             if(mather.find() == true){
                 validar = true;

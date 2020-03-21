@@ -1,4 +1,7 @@
 package GUIs;
+import archivo.GestorArchivo;
+import validar.Validar;
+
 import javax.swing.*;
 import java.awt.BorderLayout;
 /*
@@ -13,7 +16,6 @@ public class MainVentana extends JFrame{
     private Toolbar toolbar;
     private FormaPanel formaPanel;
 
-
     public MainVentana() {
 
         super("Eat it Fast");
@@ -27,7 +29,6 @@ public class MainVentana extends JFrame{
 
         //toolbar.setTextPanel(panelTexto);
         toolbar.setStringListener(new StringListener() {
-
             public void textoEmitido(String texto) {
                panelTexto.textoAdjunto(texto);
             }
@@ -35,18 +36,9 @@ public class MainVentana extends JFrame{
 
         formaPanel.setFormListener(new FormListener() {
            public void formaEventoOcurrido(FormaEvento e) {
-               String nombre = e.getNombre();
-               String correo = e.getCorreo();
-               int idPizza = e.getIdPizza();
-               int idTamano = e.getIdTamano();
-
-               panelTexto.textoAdjunto(nombre + ": " + correo + ": " + idPizza + ": " + idTamano
-                       +"\n");
-
+               GestorArchivo gestorArchivo = new GestorArchivo();
+               panelTexto.textoAdjunto(gestorArchivo.verArchivo("boletas.txt"));
            }
-
-
-
         });
 
 

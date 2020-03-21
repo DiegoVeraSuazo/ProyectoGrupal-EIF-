@@ -34,7 +34,7 @@ public class Menu {
         Pedido nuevoPedido = new Pedido();
         switch(opcion){
             case 1:
-                boleta.agregarPedido(nuevoPedido,gestorArchivo);
+
                 break;
             case 2:
                 gestorArchivo.verArchivo("boletas.txt");

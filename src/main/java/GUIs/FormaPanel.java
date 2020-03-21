@@ -1,11 +1,17 @@
 package GUIs;
 
+import archivo.GestorArchivo;
+import contextoProblema.Boleta;
+import contextoProblema.Pedido;
+import validar.Validar;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static javax.swing.JOptionPane.*;
 
 public class FormaPanel extends JPanel {
 
@@ -15,9 +21,8 @@ public class FormaPanel extends JPanel {
     private JTextField campoCorreo;
     private JButton okBtn;
     private FormListener formListener;
-    private JList listaPedido;
     private JComboBox comboTam;
-
+    private JComboBox comboTipo;
 
     public FormaPanel(){
 
@@ -31,20 +36,18 @@ public class FormaPanel extends JPanel {
         etiquetaCorreo = new JLabel("Correo: ");
         campoNombre = new JTextField(15);
         campoCorreo = new JTextField(20);
-        listaPedido = new JList();
         comboTam = new JComboBox();
+        comboTipo = new JComboBox();
 
-        // Set up list box
-        DefaultListModel modeloPedido = new DefaultListModel();
-        modeloPedido.addElement(new Pedido(0,"Pizza Vegetariana"));
-        modeloPedido.addElement(new Pedido(1,"Pizza Texana"));
-        modeloPedido.addElement(new Pedido(2,"Pizza Americana"));
-        modeloPedido.addElement(new Pedido(3,"Pizza Mediterranea"));
-        listaPedido.setModel(modeloPedido);
-
-        listaPedido.setPreferredSize(new Dimension(120, 75));
-        listaPedido.setBorder(BorderFactory.createEtchedBorder());
-        listaPedido.setSelectedIndex(0);
+        // Set up combo box
+        DefaultComboBoxModel modeloPizza = new DefaultComboBoxModel();
+        modeloPizza.addElement("Pizza Vegetariana");
+        modeloPizza.addElement("Pizza Texana");
+        modeloPizza.addElement("Pizza Americana");
+        modeloPizza.addElement("Pizza Mediterranea");
+        comboTipo.setModel(modeloPizza);
+        comboTipo.setSelectedIndex(0);
+        comboTipo.setEditable(true);
 
         // Set up combo box
         DefaultComboBoxModel modeloTamaño = new DefaultComboBoxModel();
@@ -71,23 +74,25 @@ public class FormaPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
             String nombre = campoNombre.getText();
             String correo = campoCorreo.getText();
-            Pedido pedido = (Pedido) listaPedido.getSelectedValue();
+            String tipoPizza = (String)comboTipo.getSelectedItem();
             String tamanoEmp = (String)comboTam.getSelectedItem();
-            datos(nombre,correo,pedido,tamanoEmp);
-
-            FormaEvento ev = new FormaEvento(this, nombre, correo, pedido.getId(), comboTam.getSelectedIndex());
-
-            if (formListener != null) {
-                formListener.formaEventoOcurrido(ev);
-            }
-
-        }
-
+            Boleta boleta = new Boleta();
+            GestorArchivo gestor = new GestorArchivo();
+            Pedido pedido = new Pedido();
+            if(!Validar.validarUsuario(nombre) && !Validar.validarMail(correo)){
+                showMessageDialog(null, "No se ingreso un nombre o tiene Numeros\nNo se ingreso un mail con el formato correcto (ejemplo@ejemplo.com)", "Error", ERROR_MESSAGE);
+            }else if(!Validar.validarUsuario(nombre)){
+                showMessageDialog(null, "No se ingreso un nombre o tiene Numeros", "Error", ERROR_MESSAGE);
+            }else if(!Validar.validarMail(correo)){
+                showMessageDialog(null, "No se ingreso un mail con el formato correcto (ejemplo@ejemplo.com)", "Error", ERROR_MESSAGE);
+            } else{
+                boleta.agregarPedido(pedido, gestor,nombre,correo,tipoPizza,tamanoEmp);
+                FormaEvento ev = new FormaEvento(this, nombre, correo, comboTipo.getSelectedIndex(), comboTam.getSelectedIndex());
+                if (formListener != null) {
+                    formListener.formaEventoOcurrido(ev);
+                }
+            }}
         });
-    }
-
-    public String datos(String nombre, String correo, Pedido pedido, String tamanoEmp){
-        return null;
     }
 
     public void layoutComponents() {
@@ -119,7 +124,7 @@ public class FormaPanel extends JPanel {
         gc.gridy++;
 
         gc.weightx = 1;
-        gc.weighty = 0.1;
+        gc.weighty = 0;
 
         gc.gridx = 0;
         gc.insets = new Insets(0,0,0,5);
@@ -137,17 +142,17 @@ public class FormaPanel extends JPanel {
         gc.gridy++;
 
         gc.weightx = 1;
-        gc.weighty = 0.2;
+        gc.weighty = 0.3;
 
         gc.gridx = 0;
         gc.insets = new Insets(0,0,0,0);
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
-        add(new JLabel("Pizza: "), gc);
+        add(new JLabel("Tipo Pizza: "), gc);
 
         gc.gridx = 1;
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
         gc.insets = new Insets(0,0,0,0);
-        add(listaPedido, gc);
+        add(comboTipo, gc);
 
         ///Next Row///
 
@@ -183,23 +188,4 @@ public class FormaPanel extends JPanel {
     public void setFormListener(FormListener listener) {
         this.formListener = listener;
     }
-}
-
-class Pedido {
-    private int id;
-    private String texto;
-
-    public Pedido(int id, String texto) {
-        this.id = id;
-        this.texto = texto;
-    }
-
-    public String toString() {
-        return texto;
-    }
-
-    public int getId() {
-        return id;
-    }
-
 }
