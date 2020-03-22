@@ -16,7 +16,7 @@ public class ImageInFrame extends JFrame{
     /**
      * @param ruta String indica la ruta en la que se encuentra el archivo del codigo QR.
      * @param textoQR String que posee el texto del codigo QR.
-     * @throws IOException
+     * @throws IOException Excepcion que ocurre al suceder un error orientado a Archivos.
      */
     public void mostrarQR(String ruta, String textoQR) throws IOException {
 

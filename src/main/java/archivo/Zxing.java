@@ -25,7 +25,9 @@ public class Zxing {
 
     /**
      * @param texto String que posee el texto que se convertira a un codigo QR.
+     * @param ruta  String que posee la direccion que va tener el codigo QR.
      * @throws WriterException Clase base que cubre el rango de excepciones que pueden ocurrir al codificar un codigo de barra usando el Writer Framework.
+     * @return boolean que indica si se genero el codigo QR.
      */
     public static boolean generateQR(String texto, String ruta) throws WriterException {
         try {
@@ -50,7 +52,7 @@ public class Zxing {
      * @param size int que indica el tamaño del codigo QR.
      * @param fileType String que indica el tipo de archivo al que se convertira el codigo QR.
      * @throws WriterException Clase base que cubre el rango de excepciones que pueden ocurrir al codificar un codigo de barra usando el Writer Framework.
-     * @throws IOException Excepcion que ocurre al ocurrir un error orientado a Archivos.
+     * @throws IOException Excepcion que ocurre al suceder un error orientado a Archivos.
      */
     private static void createQRImage(File qrFile, String qrCodeText, int size, String fileType)
             throws WriterException, IOException {

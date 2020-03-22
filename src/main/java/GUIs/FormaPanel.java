@@ -57,11 +57,11 @@ public class FormaPanel extends JPanel {
         comboTipo.setEditable(true);
 
         // Set up combo box
-        DefaultComboBoxModel modeloTamaño = new DefaultComboBoxModel();
-        modeloTamaño.addElement("Pequeña $5000");
-        modeloTamaño.addElement("Mediana $10000");
-        modeloTamaño.addElement("Grande $15000");
-        comboTam.setModel(modeloTamaño);
+        DefaultComboBoxModel modeloTamano = new DefaultComboBoxModel();
+        modeloTamano.addElement("Pequeña $5000");
+        modeloTamano.addElement("Mediana $10000");
+        modeloTamano.addElement("Grande $15000");
+        comboTam.setModel(modeloTamano);
         comboTam.setSelectedIndex(0);
         comboTam.setEditable(true);
 
@@ -216,7 +216,7 @@ public class FormaPanel extends JPanel {
      * @param tipoPizza String que posee el tipo de pizza escogido.
      * @param tamanoEmp String que posee el tamaño de la pizza escogido.
      * @param boleta Boleta que ademas de ordenar los datos, devuelve estos en un String debido a su metodo agregarPedido.
-     * @return
+     * @return String que posee la boleta ya realizada y ordenada.
      */
     public String ventanaErrores (Pedido pedido, GestorArchivo gestor, String nombre, String correo, String tipoPizza, String tamanoEmp, Boleta boleta) {
 
