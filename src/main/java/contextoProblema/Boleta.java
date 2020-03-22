@@ -20,6 +20,6 @@ public class Boleta {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         tiempoPedido = dateFormat.format(date);
-        return gestorArchivo.nuevaLineaTexto(tiempoPedido,pizza,cliente,"boletas.txt");
+        return gestorArchivo.nuevaLineaTexto(tiempoPedido,pizza,cliente,"Boletas/boletas.txt");
     }
 }

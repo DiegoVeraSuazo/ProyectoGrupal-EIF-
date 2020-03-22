@@ -11,6 +11,12 @@ public class Pedido {
 
 	private static ArrayList<Producto> pizzas = new ArrayList<>();
 
+	/**
+	 *Metodo que se encarga de enviar los datos al objeto de tipo Producto llamado pizzaPedida.
+	 * @param tipoPizza String indica el tipo de pizza escogido.
+	 * @param tamanoPizza String indica el tamaño que se escogio de pizza.
+	 * @return un toString del objeto pizzaPedida
+	 */
 	public static String pizzaPedida(String tipoPizza, String tamanoPizza){
 		Producto pizzaPedida = new Producto();
 		if(tamanoPizza.equals("Pequeña $5000")){
@@ -38,7 +44,9 @@ public class Pedido {
 
 	/**
 	 * Metodo que se encarga de interactuar con el usuario para que pueda ingresar sus datos.
-	 * @return retorna una variable de tipo String con un texto con los datos ingresados por el usuario.
+	 * @param nombre String que posee el nombre del Cliente.
+	 * @param correo String que posee el el correo del Cliente.
+	 * @return retorna String que guarda un texto con los datos ingresados por el usuario.
 	 * */
 	public static String registrarCliente(String nombre,String correo){
 		Cliente cliente = new Cliente();

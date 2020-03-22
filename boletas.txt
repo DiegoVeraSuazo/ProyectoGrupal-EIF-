@@ -1,0 +1,8 @@
+
+
+Producto: {Id=1, Tipo de Pizza='Pizza Vegetariana', Precio=5000.0, Tamaño='Pequeña'}
+Cliente: {Nombre='daskads', Mail='asjdbaksd@gmail.cmo'}
+Hora del pedido: 2020/03/21 14:48:45
+Producto: {Id=2, Tipo de Pizza='Pizza Vegetariana', Precio=5000.0, Tamaño='Pequeña'}
+Cliente: {Nombre='daskads', Mail='asjdbaksd@gmail.cmo'}
+Hora del pedido: 2020/03/21 14:48:48

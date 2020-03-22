@@ -47,10 +47,10 @@ public class Producto {
 	@Override
 	public String toString() {
 		return "Producto: {" +
-				"Id=" + id +
-				", Tipo de Pizza='" + tipoPizza + '\'' +
-				", Precio=" + precio +
-				", Tamaño='" + tamano + '\'' +
+				"Id = " + id +
+				", \nTipo de Pizza = '" + tipoPizza + '\'' +
+				", \nPrecio = " + precio +
+				", \nTamaño ='" + tamano + '\'' +
 				'}';
 	}
 }

@@ -1,6 +1,8 @@
 package GUIs;
 
 import archivo.GestorArchivo;
+import archivo.Zxing;
+import com.google.zxing.WriterException;
 import contextoProblema.Boleta;
 import contextoProblema.Pedido;
 import validar.Validar;
@@ -10,11 +12,14 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 import static javax.swing.JOptionPane.*;
 
 public class FormaPanel extends JPanel {
 
+    private PanelTexto panel;
     private JLabel etiquetaNombre;
     private JLabel etiquetaCorreo;
     private JTextField campoNombre;
@@ -59,8 +64,8 @@ public class FormaPanel extends JPanel {
         comboTam.setEditable(true);
 
         okBtn = new JButton("OK");
-        accionOkBtn();
 
+        accionOkBtn();
         Border bordeInterno = BorderFactory.createTitledBorder("Añadir Pedido");
         Border bordeExterno = BorderFactory.createEmptyBorder(5,5,5,5);
 
@@ -79,19 +84,21 @@ public class FormaPanel extends JPanel {
             Boleta boleta = new Boleta();
             GestorArchivo gestor = new GestorArchivo();
             Pedido pedido = new Pedido();
-            if(!Validar.validarUsuario(nombre) && !Validar.validarMail(correo)){
-                showMessageDialog(null, "No se ingreso un nombre o tiene Numeros\nNo se ingreso un mail con el formato correcto (ejemplo@ejemplo.com)", "Error", ERROR_MESSAGE);
-            }else if(!Validar.validarUsuario(nombre)){
-                showMessageDialog(null, "No se ingreso un nombre o tiene Numeros", "Error", ERROR_MESSAGE);
-            }else if(!Validar.validarMail(correo)){
-                showMessageDialog(null, "No se ingreso un mail con el formato correcto (ejemplo@ejemplo.com)", "Error", ERROR_MESSAGE);
-            } else{
-                boleta.agregarPedido(pedido, gestor,nombre,correo,tipoPizza,tamanoEmp);
-                FormaEvento ev = new FormaEvento(this, nombre, correo, comboTipo.getSelectedIndex(), comboTam.getSelectedIndex());
-                if (formListener != null) {
-                    formListener.formaEventoOcurrido(ev);
+            String textoQR = ventanaErrores(pedido, gestor, nombre, correo, tipoPizza, tamanoEmp, boleta);
+            if (!textoQR.isEmpty()) {
+                try {
+                    Zxing.generateQR(textoQR);
+                } catch (WriterException ex) {
+                    ex.printStackTrace();
                 }
-            }}
+            }
+                try {
+                    ImageInFrame frameQR = new  ImageInFrame();
+                    frameQR.mostrarQR("QRBoleta.png", textoQR);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
         });
     }
 
@@ -183,6 +190,26 @@ public class FormaPanel extends JPanel {
         gc.insets = new Insets(0,0,0,0);
         add(okBtn, gc);
 
+    }
+
+    public String ventanaErrores (Pedido pedido, GestorArchivo gestor, String nombre, String correo, String tipoPizza, String tamanoEmp, Boleta boleta) {
+
+        String boletaPedido = "";
+
+        if(!Validar.validarUsuario(nombre) && !Validar.validarMail(correo)){
+            showMessageDialog(null, "No se ingreso un nombre o tiene Numeros\nNo se ingreso un mail con el formato correcto (ejemplo@ejemplo.com)", "Error", ERROR_MESSAGE);
+        }else if(!Validar.validarUsuario(nombre)){
+            showMessageDialog(null, "No se ingreso un nombre o tiene Numeros", "Error", ERROR_MESSAGE);
+        }else if(!Validar.validarMail(correo)){
+            showMessageDialog(null, "No se ingreso un mail con el formato correcto (ejemplo@ejemplo.com)", "Error", ERROR_MESSAGE);
+        } else{
+            boletaPedido = boleta.agregarPedido(pedido, gestor,nombre,correo,tipoPizza,tamanoEmp);
+            FormaEvento ev = new FormaEvento(this, nombre, correo, comboTipo.getSelectedIndex(), comboTam.getSelectedIndex());
+            if (formListener != null) {
+                formListener.formaEventoOcurrido(ev);
+            }
+        }
+        return boletaPedido;
     }
 
     public void setFormListener(FormListener listener) {

@@ -71,7 +71,7 @@ public class Toolbar extends JPanel implements ActionListener {
 
         if(clicked == registroBoletas){
             if(textListener != null){
-                textListener.textoEmitido(gestor.verArchivo("boletas.txt"));
+                textListener.textoEmitido(gestor.verArchivo("Boletas/boletas.txt"));
             }
         }
 }

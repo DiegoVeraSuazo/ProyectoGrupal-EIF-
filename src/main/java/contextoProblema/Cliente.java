@@ -29,8 +29,8 @@ public class Cliente {
 	@Override
     public String toString() {
         return "Cliente: {" +
-                "Nombre='" + nombre + '\'' +
-                ", Mail='" + mail + '\'' +
+                "Nombre ='" + nombre + '\'' +
+                ", \nMail ='" + mail + '\'' +
                 '}';
     }
 }

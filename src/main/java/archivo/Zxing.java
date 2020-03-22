@@ -17,18 +17,39 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 
+/**
+ *
+ */
 public class Zxing {
 
-    public static void generateQR() throws WriterException, IOException {
-        String qrCodeText = "https://www.journaldev.com";
-        String filePath = "JD.png";
-        int size = 125;
-        String fileType = "png";
-        File qrFile = new File(filePath);
-        createQRImage(qrFile, qrCodeText, size, fileType);
-        System.out.println("DONE");
+
+    /**
+     * @param texto String que posee el texto que se convertira a un codigo QR.
+     * @throws WriterException Clase base que cubre el rango de excepciones que pueden ocurrir al codificar un codigo de barra usando el Writer Framework.
+     */
+    public static void generateQR(String texto) throws WriterException {
+        try {
+            String qrCodeText = texto;
+            String filePath = "QRBoleta.png";
+            int size = 125;
+            String fileType = "png";
+            File qrFile = new File(filePath);
+            createQRImage(qrFile, qrCodeText, size, fileType);
+            System.out.println("DONE");
+        } catch (IOException e) {
+            System.out.println("Ingreso de datos erroneo");
+        }
     }
 
+
+    /**
+     * @param qrFile File indica el nombre con el que se nombrara el Codigo QR.
+     * @param qrCodeText String que guarda el texto que se convertira a codigo QR.
+     * @param size int que indica el tamaño del codigo QR.
+     * @param fileType String que indica el tipo de archivo al que se convertira el codigo QR.
+     * @throws WriterException Clase base que cubre el rango de excepciones que pueden ocurrir al codificar un codigo de barra usando el Writer Framework.
+     * @throws IOException Excepcion que ocurre al ocurrir un error orientado a Archivos.
+     */
     private static void createQRImage(File qrFile, String qrCodeText, int size, String fileType)
             throws WriterException, IOException {
         // Create the ByteMatrix for the QR-Code that encodes the given String

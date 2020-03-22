@@ -9,7 +9,7 @@ public class Validar {
 
     /**
      * Metodo que valida una variable de tipo entero.
-     * @return retorna una variable de tipo entero.
+     * @return int del numero que se escribe con el teclado.
      * */
     public static int validarEntero() {
         Scanner teclado = new Scanner(System.in);
@@ -36,7 +36,7 @@ public class Validar {
     /**
      * Metodo que valida el mail ingresado por el usuario.
      * @param mail variable de tipo String ingresado por el usuario que corresponde al mail de este.
-     * @return retorna una variable de tipo boleano que certifica con un true que el mail ingresado por consola es verdadero.
+     * @return boleano que certifica con un true que el mail ingresado por consola es verdadero.
      * */
     public static boolean validarMail(String mail){
         boolean validar = false;
@@ -55,7 +55,7 @@ public class Validar {
     /**
      * Metodo que valida el nombre ingresado por el usuario.
      * @param nombre variable de tipo String ingresado por el usuario que corresponde al nombre de usuario de este.
-     * @return retorna una variable de tipo boleano que certifica con un true que el nombre de usuario ingresado por consola es verdadero.
+     * @return boleano que certifica con un true que el nombre de usuario ingresado por consola es verdadero.
      * */
     public static boolean validarUsuario(String nombre){
         boolean validar = false;

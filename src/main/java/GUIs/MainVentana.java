@@ -37,7 +37,7 @@ public class MainVentana extends JFrame{
         formaPanel.setFormListener(new FormListener() {
            public void formaEventoOcurrido(FormaEvento e) {
                GestorArchivo gestorArchivo = new GestorArchivo();
-               panelTexto.textoAdjunto(gestorArchivo.verArchivo("boletas.txt"));
+               panelTexto.textoAdjunto(gestorArchivo.verArchivo("Boletas/boletas.txt"));
            }
         });
 
