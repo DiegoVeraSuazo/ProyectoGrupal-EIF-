@@ -6,32 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validar {
-
-    /**
-     * Metodo que valida una variable de tipo entero.
-     * @return int del numero que se escribe con el teclado.
-     * */
-    public static int validarEntero() {
-        Scanner teclado = new Scanner(System.in);
-        int entrada = 0;
-        boolean valido;
-        do {
-            try {
-                entrada = teclado.nextInt();
-                if (entrada >= 0) {
-                    valido = false;
-                } else {
-                    System.out.println("Ingreso de negativo, Invalido");
-                    valido = true;
-                }
-            } catch (InputMismatchException ime) {
-                System.out.println("No ingrese letras u oraciones");
-                teclado.next();
-                valido = true;
-            }
-        } while (valido);
-        return entrada;
-    }
+    
 
     /**
      * Metodo que valida el mail ingresado por el usuario.
