@@ -41,7 +41,6 @@ public class Pedido {
 		return pizzaPedida.toString();
 	}
 
-
 	/**
 	 * Metodo que se encarga de interactuar con el usuario para que pueda ingresar sus datos.
 	 * @param nombre String que posee el nombre del Cliente.

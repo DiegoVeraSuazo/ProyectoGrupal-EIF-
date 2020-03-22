@@ -20,6 +20,14 @@ public class FormaEvento extends EventObject {
         super(source);
     }
 
+    /**
+     * Constructor de la Clase FormaEvento.
+     * @param source Object objeto que se hereda de la libreria EventObject.
+     * @param nombre String que posee el nombre ingresado por el cliente.
+     * @param correo String que posee el correo que ingreso el cliente.
+     * @param idPizza int que posee la identificacion del JComboBox (comboTipo) que se escogio.
+     * @param idTamano int que posee la identificacion del JComboBox (comboTam) que se escogio.
+     */
     public FormaEvento(Object source, String nombre, String correo, int idPizza, int idTamano) {
         super(source);
         this.nombre = nombre;

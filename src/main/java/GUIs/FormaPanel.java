@@ -6,20 +6,17 @@ import com.google.zxing.WriterException;
 import contextoProblema.Boleta;
 import contextoProblema.Pedido;
 import validar.Validar;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import static javax.swing.JOptionPane.*;
 
 public class FormaPanel extends JPanel {
 
-    private PanelTexto panel;
     private JLabel etiquetaNombre;
     private JLabel etiquetaCorreo;
     private JTextField campoNombre;
@@ -29,6 +26,11 @@ public class FormaPanel extends JPanel {
     private JComboBox comboTam;
     private JComboBox comboTipo;
 
+
+    /**
+     * Metodo que permite modelar el JPanel como uno desee,
+     * ademas de ser usado para llamar otro metodos que lo complementan.
+     */
     public FormaPanel(){
 
         Dimension dim = getPreferredSize();
@@ -74,6 +76,13 @@ public class FormaPanel extends JPanel {
         layoutComponents();
     }
 
+
+    /**
+     * Metodo que reacciona al ser pulsado el boton llamado OkBtn,
+     * y que realiza diversas acciones en concorde a esta como lo son:
+     * Recopilar la informacion, llamar un metodo para verificar la entrada correcta de dato,
+     * llamar la generacion del codigo QR y abrir una ventana que muestre la boleta.
+     */
     public void accionOkBtn(){
         okBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -103,6 +112,10 @@ public class FormaPanel extends JPanel {
         });
     }
 
+
+    /**
+     * Metodo que dicta el formato de como se presenta el JLabel.
+     */
     public void layoutComponents() {
 
         setLayout(new GridBagLayout());
@@ -193,6 +206,18 @@ public class FormaPanel extends JPanel {
 
     }
 
+    /**
+     * Metodo que se encarga de verificar la entrada correcta de datos en los JTextField indicados,
+     * ademas de instanciar un objeto FormaEvento.
+     * @param pedido Pedido objeto para ser usado en el metodo de boleta.
+     * @param gestor GestorArchivo objeto para ser usado en el metodo de boleta.
+     * @param nombre String que posee el nombre ingresado por el cliente.
+     * @param correo String que posee el correo que ingreso el cliente.
+     * @param tipoPizza String que posee el tipo de pizza escogido.
+     * @param tamanoEmp String que posee el tamaño de la pizza escogido.
+     * @param boleta Boleta que ademas de ordenar los datos, devuelve estos en un String debido a su metodo agregarPedido.
+     * @return
+     */
     public String ventanaErrores (Pedido pedido, GestorArchivo gestor, String nombre, String correo, String tipoPizza, String tamanoEmp, Boleta boleta) {
 
         String boletaPedido = "";
@@ -213,6 +238,10 @@ public class FormaPanel extends JPanel {
         return boletaPedido;
     }
 
+    /**
+     * Metodo que llama la interface FormListener para que recibo el evento deseado.
+     * @param listener FormListener que se usa para obtener un evento.
+     */
     public void setFormListener(FormListener listener) {
         this.formListener = listener;
     }
