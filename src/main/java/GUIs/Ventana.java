@@ -23,6 +23,10 @@ public class Ventana {
 
     }
 
+
+    /**
+     * Metodo que se encarga
+     */
     public void inicializar() {
 
         GestorArchivo gestor = new GestorArchivo();
