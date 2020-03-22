@@ -27,17 +27,19 @@ public class Zxing {
      * @param texto String que posee el texto que se convertira a un codigo QR.
      * @throws WriterException Clase base que cubre el rango de excepciones que pueden ocurrir al codificar un codigo de barra usando el Writer Framework.
      */
-    public static void generateQR(String texto) throws WriterException {
+    public static boolean generateQR(String texto, String ruta) throws WriterException {
         try {
             String qrCodeText = texto;
-            String filePath = "QRBoleta.png";
+            String filePath = ruta;
             int size = 125;
             String fileType = "png";
             File qrFile = new File(filePath);
             createQRImage(qrFile, qrCodeText, size, fileType);
             System.out.println("DONE");
+            return true;
         } catch (IOException e) {
             System.out.println("Ingreso de datos erroneo");
+            return false;
         }
     }
 

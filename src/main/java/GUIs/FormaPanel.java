@@ -86,8 +86,9 @@ public class FormaPanel extends JPanel {
             Pedido pedido = new Pedido();
             String textoQR = ventanaErrores(pedido, gestor, nombre, correo, tipoPizza, tamanoEmp, boleta);
             if (!textoQR.isEmpty()) {
+
                 try {
-                    Zxing.generateQR(textoQR);
+                    Zxing.generateQR(textoQR, "QRBoleta.png");
                 } catch (WriterException ex) {
                     ex.printStackTrace();
                 }

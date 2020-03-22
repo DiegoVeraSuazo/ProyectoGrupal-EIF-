@@ -103,7 +103,9 @@ public class GestorArchivo {
             BufferedWriter bw = new BufferedWriter(new FileWriter(ruta));
             bw.write("");
             bw.close();
-        }catch(IOException e){}
+        }catch(IOException e){
+            System.out.println("El directorio no pudo ser vaciado");
+        }
     }
 
     /**

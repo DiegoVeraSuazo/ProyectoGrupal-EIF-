@@ -6,10 +6,14 @@ import com.google.zxing.WriterException;
 
 import javax.swing.*;
 import java.io.File;
-import java.io.IOException;
+
 
 public class Ventana {
 
+
+    /**
+     * Metodo de ventana que invoca la Clase MainVentana para aumentar al estabilidad de los JFrame.
+     */
     public void main() {
 
         inicializar();
@@ -25,7 +29,7 @@ public class Ventana {
 
 
     /**
-     * Metodo que se encarga
+     * Metodo que se encarga inicializar el programa desde cero,
      */
     public void inicializar() {
 
@@ -36,7 +40,7 @@ public class Ventana {
         gestor.vaciarArchivo("Boletas/boletas.txt");
 
         try {
-            Zxing.generateQR("Aqui se encuentra el codigo QR que podra escanear para su pedido");
+            Zxing.generateQR("Aqui se encuentra el codigo QR que podra escanear para su pedido", "QRBoleta.png");
         } catch (WriterException e) {
             e.printStackTrace();
         }

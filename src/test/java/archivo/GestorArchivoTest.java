@@ -32,7 +32,7 @@ public class GestorArchivoTest {
     @Test
     public void nuevaLineaTexto() {
         GestorArchivo.vaciarArchivo(nombreArchivo);
-        assertEquals("\n"+pizza+" "+cliente+" Hora del pedido: "+hora, GestorArchivo.nuevaLineaTexto(hora,pizza,cliente,nombreArchivo) );
+        assertEquals(pizza+"\n"+cliente+"\nHora del pedido: "+hora, GestorArchivo.nuevaLineaTexto(hora,pizza,cliente,nombreArchivo) );
     }
 
     @Test
