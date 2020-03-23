@@ -75,7 +75,7 @@ public class GestorArchivo {
      * Metodo que agrega una nueva linea de texto de tipo String al archivo boletas.txt.
      * @param hora tiempo que se registro en el momento del pedido.
      * @param cliente los datos registrados por el usuario.
-     * @param pizza el producto que escogio y su tamaño.
+         * @param pizza el producto que escogio y su tamaño.
      * @param ruta variable para acceder a la ruta del archivo boletas.txt
      * @return retorna un texto que corresponde a lo que contiene el archivo boletas.txt con su nueva linea.
      */
