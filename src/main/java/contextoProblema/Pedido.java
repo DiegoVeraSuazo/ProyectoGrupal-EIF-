@@ -1,11 +1,7 @@
 package contextoProblema;
 
-import GUIs.FormaPanel;
-import GUIs.MainVentana;
-import validar.Validar;
-import javax.swing.*;
 import java.util.ArrayList;
-import static javax.swing.JOptionPane.*;
+
 
 public class Pedido {
 
