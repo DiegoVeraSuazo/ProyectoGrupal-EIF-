@@ -84,7 +84,6 @@ public class GestorArchivo {
         String texto = "";
         String linea = pizza+"\n"+cliente+"\nHora del pedido: "+hora;
         try {
-            texto = Files.readString(archivo);
             String textoAnterior = new String(Files.readAllBytes(archivo));
             texto = textoAnterior+"\n"+linea;
             Files.write(archivo, texto.getBytes());

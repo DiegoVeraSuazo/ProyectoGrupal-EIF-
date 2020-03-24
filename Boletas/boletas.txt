@@ -1,0 +1,22 @@
+
+Producto: {Id = 1, 
+Tipo de Pizza = 'Pizza Vegetariana', 
+Precio = 5000.0, 
+Tamaño ='Pequeña'}
+Cliente: {Nombre ='sasddsa', 
+Mail ='dadas@ascmom.com'}
+Hora del pedido: 2020/03/24 15:50:08
+Producto: {Id = 2, 
+Tipo de Pizza = 'Pizza Americana', 
+Precio = 5000.0, 
+Tamaño ='Pequeña'}
+Cliente: {Nombre ='sasddsa', 
+Mail ='dadas@ascmom.com'}
+Hora del pedido: 2020/03/24 15:50:10
+Producto: {Id = 3, 
+Tipo de Pizza = 'Pizza Americana', 
+Precio = 15000.0, 
+Tamaño ='Grande'}
+Cliente: {Nombre ='sasddsa', 
+Mail ='dadas@ascmom.com'}
+Hora del pedido: 2020/03/24 15:50:11
