@@ -38,10 +38,10 @@ public class Pedido {
 	}
 
 	/**
-	 * Metodo que se encarga de interactuar con el usuario para que pueda ingresar sus datos.
+	 * Metodo que se encarga de registrar los datos recibos.
 	 * @param nombre String que posee el nombre del Cliente.
 	 * @param correo String que posee el el correo del Cliente.
-	 * @return retorna String que guarda un texto con los datos ingresados por el usuario.
+	 * @return retorna String que guarda un texto con los datos registrados.
 	 * */
 	public static String registrarCliente(String nombre,String correo){
 		Cliente cliente = new Cliente();
