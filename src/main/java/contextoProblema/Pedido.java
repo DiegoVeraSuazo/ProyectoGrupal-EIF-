@@ -51,6 +51,6 @@ public class Pedido {
 		Cliente cliente = new Cliente();
 		cliente.setNombre(nombre);
 		cliente.setMail(correo);
-			return cliente.toString();
+		return cliente.toString();
 		}
    	}

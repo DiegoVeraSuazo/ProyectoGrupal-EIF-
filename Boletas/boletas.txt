@@ -3,6 +3,6 @@ Producto: {Id = 1,
 Tipo de Pizza = 'Pizza Vegetariana', 
 Precio = 5000.0, 
 Tamaño ='Pequeña'}
-Cliente: {Nombre ='Diego', 
-Mail ='vera@gjma.com'}
-Hora del pedido: 2020/03/23 13:46:01
+Cliente: {Nombre ='dsa', 
+Mail ='sad@asbi.com'}
+Hora del pedido: 2020/03/23 22:03:18
