@@ -97,14 +97,14 @@ public class FormaPanel extends JPanel {
             if (!textoQR.isEmpty()) {
 
                 try {
-                    Zxing.generateQR(textoQR, "QRBoleta.png");
+                    Zxing.generateQR(textoQR, "Boletas/QRBoleta.png");
                 } catch (WriterException ex) {
                     ex.printStackTrace();
                 }
             }
                 try {
                     ImageInFrame frameQR = new  ImageInFrame();
-                    frameQR.mostrarQR("QRBoleta.png", textoQR);
+                    frameQR.mostrarQR("Boletas/QRBoleta.png", textoQR);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }

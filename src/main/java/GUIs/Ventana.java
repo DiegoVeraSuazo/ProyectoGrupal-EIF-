@@ -40,7 +40,7 @@ public class Ventana {
         gestor.vaciarArchivo("Boletas/boletas.txt");
 
         try {
-            Zxing.generateQR("Aqui se encuentra el codigo QR que podra escanear para su pedido", "QRBoleta.png");
+            Zxing.generateQR("Aqui se encuentra el codigo QR que podra escanear para su pedido", "Boletas/QRBoleta.png");
         } catch (WriterException e) {
             e.printStackTrace();
         }
