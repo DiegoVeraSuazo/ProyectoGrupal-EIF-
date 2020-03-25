@@ -54,12 +54,12 @@ public class Zxing {
      */
     private static void createQRImage(File qrFile, String qrCodeText, int size, String fileType)
             throws WriterException, IOException {
-        // Create the ByteMatrix for the QR-Code that encodes the given String
+        // Crea el ByteMatrix para el codigo QR que codifica el String dado
         Hashtable<EncodeHintType, ErrorCorrectionLevel> hintMap = new Hashtable<>();
         hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         BitMatrix byteMatrix = qrCodeWriter.encode(qrCodeText, BarcodeFormat.QR_CODE, size, size, hintMap);
-        // Make the BufferedImage that are to hold the QRCode
+        // Crea la BufferedImage que estara sosteniendo el codigo QR
         int matrixWidth = byteMatrix.getWidth();
         BufferedImage image = new BufferedImage(matrixWidth, matrixWidth, BufferedImage.TYPE_INT_RGB);
         image.createGraphics();
@@ -67,7 +67,7 @@ public class Zxing {
         Graphics2D graphics = (Graphics2D) image.getGraphics();
         graphics.setColor(Color.WHITE);
         graphics.fillRect(0, 0, matrixWidth, matrixWidth);
-        // Paint and save the image using the ByteMatrix
+        // Dibuja y guarda la imagen usando el ByteMatrix
         graphics.setColor(Color.BLACK);
 
         for (int i = 0; i < matrixWidth; i++) {
