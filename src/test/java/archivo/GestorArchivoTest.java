@@ -1,15 +1,12 @@
 package archivo;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import static org.junit.Assert.*;
 
 public class GestorArchivoTest {
@@ -18,7 +15,6 @@ public class GestorArchivoTest {
     String hora;
     String pizza;
     String cliente;
-
     @Before
     public void setUp() {
         nombreArchivo = "boletasTest.txt";
@@ -28,13 +24,11 @@ public class GestorArchivoTest {
         pizza = "pizza test";
         cliente = "cliente test";
     }
-
     @Test
     public void nuevaLineaTexto() {
         GestorArchivo.vaciarArchivo(nombreArchivo);
         assertEquals(pizza+"\n"+cliente+"\nHora del pedido: "+hora, GestorArchivo.nuevaLineaTexto(hora,pizza,cliente,nombreArchivo) );
     }
-
     @Test
     public void verArchivo() throws IOException {
         String texto = GestorArchivo.verArchivo(nombreArchivo);
