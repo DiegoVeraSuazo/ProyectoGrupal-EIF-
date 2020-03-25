@@ -13,15 +13,20 @@ public class Validar {
      * */
     public static boolean validarMail(String mail){
         boolean validar = false;
-        try{
-            Pattern pattern = Pattern
-                    .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-            Matcher mather = pattern.matcher(mail);
-            if(mather.find() == true){
-                validar = true;
+        if (mail.length()<35) {
+            try {
+                Pattern pattern = Pattern
+                        .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+                Matcher mather = pattern.matcher(mail);
+                if (mather.find() == true) {
+                    validar = true;
+                }
+            } catch (Exception e) {
             }
-        }catch (Exception e){}
+        } else {
+            validar = false;
+        }
         return validar;
     }
 
@@ -32,13 +37,18 @@ public class Validar {
      * */
     public static boolean validarUsuario(String nombre){
         boolean validar = false;
-        try{
-            Pattern pattern = Pattern.compile("^[a-zA-Z\\s]+$");
-            Matcher mather = pattern.matcher(nombre);
-            if(mather.find() == true){
-                validar = true;
+        if (nombre.length()<35) {
+            try {
+                Pattern pattern = Pattern.compile("^[a-zA-Z\\s]+$");
+                Matcher mather = pattern.matcher(nombre);
+                if (mather.find() == true) {
+                    validar = true;
+                }
+            } catch (Exception e) {
             }
-        }catch (Exception e){}
-        return validar;
+            return validar;
+        } else {
+            return validar;
+        }
     }
 }

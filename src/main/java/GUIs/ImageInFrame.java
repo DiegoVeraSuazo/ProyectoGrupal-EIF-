@@ -20,27 +20,34 @@ public class ImageInFrame extends JFrame{
      */
     public void mostrarQR(String ruta, String textoQR) throws IOException {
 
-            Dimension dim = getPreferredSize();
-            dim.width = 300;
-            dim.height = 400;
-            setPreferredSize(dim);
+        if (!textoQR.isEmpty()) {
+                textoQR = textoQR + "\n[Su pedido estara listo en 30 minutos]";
+            }
 
-            String path = ruta;
-            File file = new File(path);
+        Dimension dim = getPreferredSize();
+        dim.width = 300;
+        dim.height = 400;
+        setPreferredSize(dim);
 
-            BufferedImage image = ImageIO.read(file);
-            QR = new JLabel(new ImageIcon(image));
-            setSize(800, 1000);
+        String path = ruta;
+        File file = new File(path);
 
-            texto = new JTextArea(textoQR);
-            texto.setSize(300, 110);
+        BufferedImage image = ImageIO.read(file);
+        QR = new JLabel(new ImageIcon(image));
+        setSize(800, 1000);
+        QR.setSize(getPreferredSize());
+        Point punto = getLocation();
+        punto.x = 150;
+        punto.y = 300;
+        QR.setLocation(punto);
 
-            QR.setSize(getPreferredSize());
+        texto = new JTextArea(textoQR);
+        texto.setSize(300, 130);
 
-            getContentPane().add(texto);
-            getContentPane().add(QR);
-            pack();
-            setLocation(200, 200);
-            setVisible(true);
+        getContentPane().add(texto);
+        getContentPane().add(QR);
+        pack();
+        setLocation(200, 200);
+        setVisible(true);
     }
 }
